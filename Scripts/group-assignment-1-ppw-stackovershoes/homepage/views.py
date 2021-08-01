@@ -4,7 +4,7 @@ from django.core import validators
 from django.urls import reverse
 from django.db.models import Q
 # from django.contrib.postgres.search import SearchVector
-from .models import Items, Category
+from .models import Item, Category
 from django.http import QueryDict
 
 
@@ -28,7 +28,7 @@ def build_url(*args, **kwargs):
 
 
 def index(request):
-    all_items = Items.objects.all()
+    all_items = Item.objects.all()
     
     context = {
         'title': 'Homepage',
@@ -52,9 +52,9 @@ def category(request):
             [build_url('transaction:history'), 'HISTORY']
         ],
         'category': [
-            [build_url('homepage:items', params={'category': 'sport'}), 'Sports'],
-            [build_url('homepage:items', params={'category': 'running'}), 'Running'],
-            [build_url('homepage:items', params={'category': 'casual'}), 'Casual'],
+            [build_url('homepage:items', params={'category': 'Sports'}), 'Sports'],
+            [build_url('homepage:items', params={'category': 'Running'}), 'Running'],
+            [build_url('homepage:items', params={'category': 'Casual'}), 'Casual'],
         ]
     }
     return render(request, 'category.html', context)
@@ -77,7 +77,7 @@ def items(request):
             except Category.DoesNotExist:
                 return redirect(build_url('homepage:category'))
             
-            all_items = Items.objects.filter(category=category)
+            all_items = Item.objects.filter(category=category)
             context['all_items'] = all_items
 
             return render(request, 'items.html', context)
@@ -90,7 +90,7 @@ def items(request):
 
             # Use this when testing locally, uses SQLite
             query = request.GET.get('search')
-            all_items = Items.objects.filter(
+            all_items = Item.objects.filter(
                 Q(id__icontains=query) |
                 Q(name__icontains=query) |
                 Q(category__name__icontains=query) |

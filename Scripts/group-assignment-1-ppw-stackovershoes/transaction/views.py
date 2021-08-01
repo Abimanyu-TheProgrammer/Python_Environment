@@ -4,7 +4,7 @@ from django.core import validators
 from django.urls import reverse
 from django.db.models import Q
 # from django.contrib.postgres.search import SearchVector
-from homepage.models import Items, Category
+from homepage.models import Item, Category
 from homepage.views import build_url
 from Voucher.models import Voucher
 from .models import Transaction

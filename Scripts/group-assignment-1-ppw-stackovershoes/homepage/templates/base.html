@@ -1,4 +1,5 @@
-<!doctype html> {%load static%}
+{%load static%}
+<!doctype html> 
 <html lang="en">
 
 <head>
@@ -25,13 +26,13 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="stackovershoes-logo-white.png" width="40" height="40" alt="">
+                <img src="{% static 'stackovershoes-logo-white.png' %}" width="40" height="40" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2 nav-font" type="search" placeholder="Search">
+            <form action="{% url 'homepage:items' %}" method="get" class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2 nav-font" type="search" placeholder="Search" name="search">
             </form>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav ml-auto">

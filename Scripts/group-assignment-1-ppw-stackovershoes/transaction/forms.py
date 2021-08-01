@@ -1,5 +1,5 @@
 from django import forms
-from homepage.models import Items
+from homepage.models import Item
 from .models import Transaction
 from Voucher.models import Voucher
 
