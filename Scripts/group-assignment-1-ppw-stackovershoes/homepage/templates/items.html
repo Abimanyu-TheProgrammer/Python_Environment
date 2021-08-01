@@ -7,7 +7,7 @@
 
         <div class="row row-cols-1 row-cols-md-3" style="margin-top: 100px;">
           {%for items in all_items%}
-        <a href="" id="card-press-area">
+        <a href="productpage/{{items.id}}" id="card-press-area">
           <div class="col mb-4">
             <div class="card h-100">
               <img src="http://localhost:8000/media/{{items.img_url}}" class="card-img-top" alt="not found">

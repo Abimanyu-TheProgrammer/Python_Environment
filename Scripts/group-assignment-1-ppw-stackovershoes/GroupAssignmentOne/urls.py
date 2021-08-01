@@ -22,6 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('homepage.urls')),
     path('voucher/',include('Voucher.urls')),
-    path('productpage/',include('ProductPage.urls')),
+    path('items/productpage/<str:id>',include('ProductPage.urls')),
     path('buy/', include('transaction.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

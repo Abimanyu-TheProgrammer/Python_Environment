@@ -9,7 +9,8 @@
                 <div class="col-sm">
 
                     <div class="card">
-                        <img src="https://via.placeholder.com/400x400" class="card-img-top " alt="...">
+                        
+                        <img src="http://localhost:8000/media/{{item.img_url}}" class="card-img-top " alt="...">
 
                         <div class="card-body">
 
@@ -77,10 +78,10 @@
                 </div>
 
                 <div class="col-sm review-buy-column">
-                    <h5>SOS-XXXX01</h5>
-                    <h1>stackovershoes</h1>
-                    <h1>It's Grey</h1>
-                    <h1>Rp. 1.450.000</h1>
+                    <h5>{{item.id}}</h5>
+                    <h1>{{item.name}}</h1>
+                    <h1>{{item.description}}</h1>
+                    <h1>Rp.{{item.price}}</h1>
                     <h5>Available Sizes:</h5>
                     <h5>40 41 43 45</h5>
                     <button type="button" class="btn btn-secondary btn-lg" method="GET">BUY NOW</button>
@@ -137,7 +138,6 @@
                       </div>
                           {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
             </div>
 
