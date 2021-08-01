@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<div class="container text-center" style="margin-top:20px; align-self: center; align-items: center; justify-self: center; justify-content: center;">
+
+    <div class="row">
+
+        <div class="col-md-auto" style="text-align: left;">
+            <div class="details">
+                <u>DETAILS</u>
+            </div>
+            <div class="product-details-cart">
+                <br>
+                <p>1x {{item.name}} </p>
+                <p>{{item.description}}</p>
+            </div>
+        </div>
+
+        <div class="col">
+
+            <div class="card" style="width: 18rem; text-align: left;">
+                <div class="card-body">
+                    <h5 class="card-title details" style="margin-top: 5px;">VOUCHERS</h5>
+                    <forms method='POST'>
+                        <input type="text" class="form-control" placeholder="Enter Here" aria-label="Voucher Code" name="voucher">
+                        <input type="hidden" value="{{item_id}}" name="item_id">
+                    </forms>
+                </div>
+            </div>
+
+            <div class="card" style="width: 18rem; margin-top: 20px;">
+                <div class="card-body">
+                    <h5 class="card-title details">NAME</h5>
+                    <forms method='POST'>
+                        <input type="text" class="form-control" placeholder="Enter Your Name Here" aria-label="Name" name="buyer">
+                        <input type="hidden" value="TRUE" name="buy">
+                        <input type="hidden" value="{{item_id}}" name="item_id" required id="id_items_id">
+                        <input type="hidden" value="{{voucher}}" name="voucher" required id="id_voucher">
+                        <h5 class="card-title total">TOTAL AMOUNT</h5>
+                        <h6 class="card-subtitle mb-2 text-muted amount">{{item_price}}</h6>
+                        <input type="submit" class="btn btn-dark back-to-shopping" value="PAY">
+                    </forms>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,48 @@
+{% load static %}
+
+<script>
+    $("html").on('click', '.addammount', function(e) {
+        e.preventDefault()
+
+        var item = $(this).closest("tr")
+        var totalpricetext = $(this).closest(".table").find(".totalprice")
+
+        var ammountext = $(item).find(".ammount")
+        var ammount = parseInt($(ammountext).text(), 10)
+
+        var stock = parseInt($(item).find(".stock").text(), 10)
+        var price = parseInt($(item).find(".price").text(), 10)
+        var totalprice = parseInt($(totalpricetext).text(), 10)
+
+        if(ammount < stock) {
+            ammount += 1
+            $(item).find(".total").text((price*ammount).toString(10))
+
+            totalprice += price
+            $(totalpricetext).text(totalprice.toString(10))
+        }
+
+        $(ammountext).text(ammount.toString(10))
+    })
+
+    $("html").on('click', '.decammount', function(e) {
+        e.preventDefault()
+        var item = $(this).closest("tr")
+        var totalpricetext = $(this).closest(".table").find(".totalprice")
+
+        var ammountext = $(item).find(".ammount")
+        var ammount = parseInt($(ammountext).text(), 10)
+        var price = parseInt($(item).find(".price").text(), 10)
+        var totalprice = parseInt($(totalpricetext).text(), 10)
+
+        if(ammount > 1) {
+            ammount -= 1
+            $(item).find(".total").text((price*ammount).toString(10))
+
+            totalprice -= price
+            $(totalpricetext).text(totalprice.toString(10))
+        }
+
+        $(ammountext).text(ammount.toString(10))
+    })
+</script>

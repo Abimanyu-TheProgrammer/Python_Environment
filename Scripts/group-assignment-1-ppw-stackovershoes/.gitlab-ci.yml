@@ -1,0 +1,36 @@
+# services:
+#   - postgres:latest
+
+stages:
+  - test
+  - deploy
+
+test:
+  image: python:latest
+  stage: test
+  # this configures Django application to use attached postgres database that is run on `postgres` host
+  # variables:
+  #   DATABASE_URL: "postgresql://postgres:postgres@postgres:5432/$POSTGRES_DB"
+  script:
+  - apt-get update -qy
+  - apt-get install -y python-dev python-pip
+  - pip install -r requirements.txt
+  - python manage.py test
+  # - coverage run --source='.' manage.py test
+  # - coverage report
+
+Deployment:
+  image: ruby:2.4
+  stage: deploy
+  before_script:
+    - gem install dpl
+    - wget -qO- https://cli-assets.heroku.com/install-ubuntu.sh | sh
+  script:
+    - dpl --provider=heroku --app=$HEROKU_APPNAME --api-key=$HEROKU_APIKEY
+    - export HEROKU_API_KEY=$HEROKU_APIKEY
+  environment:
+    name: production
+    url: $HEROKU_APP_HOST
+  when: on_success
+  only:
+    - master

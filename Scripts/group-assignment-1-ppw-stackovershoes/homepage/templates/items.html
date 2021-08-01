@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+	{% block content %}
+      <div class="container">
+        <!-- ITEM CARDS -->
+
+        <div class="row row-cols-1 row-cols-md-3" style="margin-top: 100px;">
+          {%for items in all_items%}
+        <a href="" id="card-press-area">
+          <div class="col mb-4">
+            <div class="card h-100">
+              <img src="media/{{items.img_url}}" class="card-img-top" alt="not found">
+              <div class="card-body">
+                <h5 class="card-title" id="items-card-title">{{items.name}}</h5>
+                <p class="card-text" id="items-card-text">{{items.description}}</p>
+              </div>
+            </div>
+          </div> 
+        </a>
+        {%endfor%}
+      </div>
+
+{%endblock%}

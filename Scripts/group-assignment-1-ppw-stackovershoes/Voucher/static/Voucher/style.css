@@ -1,0 +1,210 @@
+/* Items Catalog Page */
+.navbar {
+    background-color: black !important;
+    /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+    font-family: 'Oswald', sans-serif;
+}
+
+#search-bar { 
+    width: 400px!important; 
+    height: 28px !important;
+}
+
+#items-card-title, #items-card-text {
+    font-family: 'Oswald', sans-serif;
+}
+
+#card-press-area {
+    color: black !important;
+}
+
+/* Category Page */
+#category-card-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+}
+
+#categorycontainer {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+/* PRODUCT PAGE */
+.container {
+    padding-top: 20px;
+}
+
+.review-hr {
+    border: 2px solid black;
+}
+
+.review-row {
+    padding-bottom: 20px;
+}
+
+.review-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.clip-star {
+    background: gold;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+
+@media only screen and (max-width: 1050px) {
+    .review-hr-row {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .review-row {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .review-buy-column {
+        text-align: center;
+        padding-top: 20px;
+    }
+}
+
+/* home */
+
+.navbar {
+    background-color: black !important;
+}
+
+.nav-font{
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px
+}
+
+
+
+.input.form-control { 
+    width: 400px!important; 
+    height: 28px !important;
+}
+
+.carousel-margin{
+    margin-top:20px;
+}
+
+.thanks{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+}
+
+.card-title-font{
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+}
+
+.card-body-font{
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+}
+
+.details{
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    text-align: left;
+}
+
+.product-details-cart{
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    text-align: left;
+    line-height: 0.3;
+}
+
+.total{
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    text-align: center;
+}
+
+.amount{
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    text-align: center;
+}
+
+.back-to-shopping{
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    text-align: center;
+    color: white !important;
+}
+
+.vouchers{
+    font-family: 'Oswald', sans-serif;
+    font-size: 50px;
+}
+
+.please-put{
+    font-family: 'Playfair Display', serif;
+    font-size: 30px
+}
+
+.discount-title{
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+}
+
+.discount-details{
+    font-family: 'Playfair Display', serif;
+    font-size: 20px
+}
+.home-picture{
+    height: 540px;
+    width:960px;
+    object-fit: contain;
+}
+
+.id-font{
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+}
+
+.product-title{
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+}
+
+.product-desc{
+    font-family: 'Playfair Display', serif;
+    font-size: 50px
+}
+
+.product-price{
+    font-family: 'Playfair Display', serif;
+    font-size: 30px
+}
+
+.product-size{
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+}

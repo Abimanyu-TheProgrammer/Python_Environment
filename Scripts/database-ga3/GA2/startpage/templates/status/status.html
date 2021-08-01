@@ -1,0 +1,26 @@
+{% extends "startpage/base.html" %}
+{% load static %}
+
+{% block content %}
+  
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <br><br>
+                <table>
+                    <tr>
+                      <th>Status Code</th>
+                      <th>Status Name</th>
+                    </tr>
+                    {% for row in data %}
+                        <tr>
+                            <td>{{ row.code }}</td>
+                            <td>{{ row.name }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,112 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <style>
+      body {
+        padding : 3rem;
+    }
+
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+  
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+
+    .pagination {
+        text-align: center;
+        margin-top: 1em;
+    }
+
+    .pagination-action {
+        margin: 0 0.1em;
+        display: inline-block;
+        padding: 0.5em;
+        color: #bb99bb;
+        font-size: 1.3em;
+    }
+
+    .pagination-action:hover{
+        color : #3354AA
+    }
+    </style>
+
+  </head>
+
+  <body>
+    <header>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+              <a class="navbar-brand" href="#">GA2 BASDUT</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'startpage:home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'registerCustomer' %}">Register Customer</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'registerCourier' %}">Register Courier</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'registerStaff' %}">Register Staff</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'startpage:topup' %}">Top Up</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'startpage:testimony' %}">Testimony</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'startpage:service' %}">Service</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'startpage:status' %}">Status</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'startpage:laundryList' %}">Laundry List</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'startpage:item' %}">Item</a>
+                    </li>
+                </ul>
+              </div>
+            </nav>
+          </header>
+    <main role="main">
+
+    {% block content %} {% endblock %}
+  
+    </main>
+  </body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</html>

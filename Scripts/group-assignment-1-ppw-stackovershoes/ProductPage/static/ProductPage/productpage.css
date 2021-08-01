@@ -1,0 +1,45 @@
+.container {
+    padding-top: 20px;
+}
+
+.review-hr {
+    border: 2px solid black;
+}
+
+.review-row {
+    padding-bottom: 20px;
+}
+
+.review-container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.clip-star {
+    background: gold;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+
+
+@media only screen and (max-width: 1050px) {
+    .review-hr-row {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    
+    .review-row {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .review-buy-column {
+        text-align: center;
+        padding-top: 20px;
+    }
+}

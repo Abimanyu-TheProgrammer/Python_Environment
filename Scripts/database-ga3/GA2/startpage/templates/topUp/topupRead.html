@@ -1,0 +1,58 @@
+{% extends "startpage/base.html" %}
+{% load static %}
+
+{% block content %}
+  
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <br><br>
+                <table>
+                    <tr>
+                      <th>Email</th>
+                      <th>Date</th>
+                      <th>Nominal</th>
+                      <th>Actions</th>
+                      <th><input type="text" placeholder="Search.."></th>
+                    </tr>
+                    {% for i in data %}
+                        <tr>
+                            <td>{{ i.email }}</td>
+                            <td>{{ i.date }}</td>
+                            <td>{{ i.nominal }}</td>
+                            <td>
+                                <a href="{% url 'startpage:delete_topUp' i.email i.date %}">[Delete]</a>
+                                <a href="{% url 'startpage:update_topUp' i.email i.date %}">[Update]</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <div class="pagination">
+                    {% if data.has_previous %}
+                        <a href="?page=1"><<</a>
+                        <a href="?page={{ topup_data.previous_page_number }}"><</a>
+                    {% endif %}
+
+                    {% for num in data.paginator.page_range %}
+                        {% if topup_data.number == num %}
+                            <strong> {{ num }} </strong>
+                        {% elif num > data.number|add:'-3' and topup_data.number|add:'3' %}
+                            {{ num }}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if data.has_next %}
+                        <a href="?page={{ topup_data.next_page_number }}">></a>
+                        <a href="?page={{ topup_data.paginator.num_pages }}">>></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <a href="{% url 'startpage:topUpForm' %}">Add Top Up</a>
+        </div>
+    </div>
+
+{% endblock %}

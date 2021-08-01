@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<div class="container" id="categorycontainer">
+    <!-- CATEGORY CARDS -->
+    <div class="card-deck" style="margin-top: 100px; margin-bottom: 65px;">
+        {% for link, name in category %}
+        <div class="card" style="width: 300px; height: 500px; text-align: center;">
+            <a href="{{ link }}" id="category-press-area">
+                <div class="card-body">
+                    <h2 class="card-title" id="category-card-title" style="color: black !important;">{{ name }}</h2>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+        <!-- <div class="card" style="width: 300px; height: 500px; text-align: center;">
+                <a href="" id="category-press-area">
+                    <div class="card-body">
+                      <h2 class="card-title" id="category-card-title" style="color: black !important;">RUNNING</h2>
+                    </div>
+                </a>
+            </div>
+            <div class="card" style="width: 300px; height: 500px; text-align: center;">
+                <a href="" id="category-press-area">
+                    <div class="card-body">
+                      <h2 class="card-title" id="category-card-title"  style="color: black !important;">CASUAL</h2>
+                    </div>
+                </a>
+            </div> -->
+
+    </div>
+</div>
+<!-- end of container div -->
+{%endblock%}

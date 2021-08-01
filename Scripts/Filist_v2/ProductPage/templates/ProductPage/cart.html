@@ -1,0 +1,100 @@
+{% extends "ProductPage/base.html" %}
+    {% load static %}
+        {% block content %}
+
+        <div class="container text-center" style="margin-top:20px;">
+            <div class="col">
+                <table id="place" class="table"></table>
+            </div>
+
+            <script src="{% static 'jquery.js' %}"></script>
+            <script>
+                var ourData 
+                var buttons
+                var total
+                var total_btn
+
+
+
+                window.onload = function(){
+                    place = document.getElementById("place");
+                }
+
+                $.get("/productpage/json/", function(json_response){
+                        console.log(json_response)
+                        ourData = json_response
+                        renderHTML(ourData)
+                        delButtonMap("del")
+                    })
+
+                function totalMap(buttonName){
+                    total_btn = document.getElementById(buttonName)
+
+                }
+
+                function delButtonMap(buttonName){
+                    buttons = document.getElementsByName(buttonName)
+                    for(i = 0; i < buttons.length; i++){
+                        buttons[i].onclick = function(e){
+                            $.ajax({
+                                url : '/cart/',
+                                data : {
+                                    task : "del",
+                                    cart_item : this.id
+                                    },
+                                type: 'POST',
+                                success : function(){
+
+                                    $.get("/cart/json/", function(json_response){
+                                        console.log(json_response)
+                                        ourData = json_response
+                                        renderHTML(ourData)
+                                        delButtonMap("del")
+                                    })
+                                    alert("Remove Successful")
+                                    }
+                                })
+                        }
+                    }
+                }
+
+                function renderHTML(data) {
+                    var total = 0
+                    var table="<thead class='thead-dark'><tr><th>Name</th><th>Price</th><th>Amount</th><th>Actions</th><th>Total</th></tr></thead><tbody>";
+                        for (i = 0; i < data.length; i++) {
+                            const name = data[i].name
+                            const price = data[i].price
+                            const id = data[i].item_id
+                            const stock = data[i].stock
+                            total += price
+
+                            table += "<tr><td>" + 
+                            name  + "</td><td class='price'>"+
+                            price + "</td>"
+                            + `
+                            <td>
+                                <span class="ammount">1</span>/<span class="stock">${stock}</span>
+                            </td>
+                            <td>
+                            <form class="decammount">
+                                <svg type="submit" class="button-dec" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px"><path d="M19 13H5v-2h14v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                            </form>
+                            <form class="addammount">
+                                <svg type="submit" class="button-add" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="24px" height="24px"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+                            </form>
+                            `
+                            + "<button class='btn btn-dark' name='del' id='"+ id +"'>Remove</button></td>"
+                            +"<td class='total'>"+ price + "</td>"
+                            +"</tr>";
+                        }
+                    table += "</tbody><tfoot>"+ 
+                    "<tr class='visible-xs'>"+
+                            "<td><button href='#' class='btn btn-dark' style='float : left;'>Continue Shopping</button></td>"+
+							"<td colspan='2' class='hidden-xs'></td>"+
+							`<td class='hidden-xs text-center total'><strong>Total <span class="totalprice">${total}</span></strong><button href='#' class='btn btn-dark ml-2' id='total_btn'>Calculate Total</button></td></tr>`+
+					"</tfoot>" 
+                    place.innerHTML = table;
+                    }
+            </script>
+            {% include 'ProductPage/ammount.html' %}
+        {% endblock %}
