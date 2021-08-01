@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'os*k^t@b!rr$gxzo!m!=iqs2&!^3l4@))^cbbdbr^ia=hpgcb_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -100,7 +100,7 @@ if PRODUCTION:
     # KALAU SUDAH BERJALAN, kamu bisa uncomment bagian DEBUG, ALLOWED_HOSTS, dan DATABASES.
     # For increased security.
     DEBUG = False
-    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'stackovershoes.herokuapp.com', 'testserver']
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'stackovershoes-website.herokuapp.com', 'testserver']
     DATABASES['default'] = dj_database_url.config()
     SECURE_SSL_REDIRECT = True
 
